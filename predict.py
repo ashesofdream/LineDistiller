@@ -8,11 +8,12 @@ R = 2 ** 3
 
 def main():
     model = load_model('model.h5')
-
+    num = 0 
     for root, dirs, files in os.walk('/kaggle/input/sketch-gan/illustrations_resized/illustrations_resized', topdown=False):
         for name in files:
-            print(os.path.join(root, name))
-
+            num=num+1
+            if num%1000 == 0:
+                print(len(files),":",num)
             im = cv2.imread(os.path.join(root, name))
             im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 
