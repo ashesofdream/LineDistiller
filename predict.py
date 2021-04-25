@@ -9,7 +9,7 @@ R = 2 ** 3
 def main():
     model = load_model('model.h5')
 
-    for root, dirs, files in os.walk('./input', topdown=False):
+    for root, dirs, files in os.walk('/kaggle/input/sketch-gan/illustrations_resized/illustrations_resized', topdown=False):
         for name in files:
             print(os.path.join(root, name))
 
