@@ -35,9 +35,9 @@ def main():
             im_resized = cv2.resize(im, (im.shape[1] // R * R, im.shape[0] // R * R))
             im_resized =preprocess(im_resized).unsqueeze(0)
             im_resized = im_resized.to(DEVICE)
-            res = model(im_resized)
-            res = res.to('cpu')
-            im_res = (res.squeeze(0).permute(1, 2, 0).detach().numpy() + 1) / 2 * 255
+            im_resized = model(im_resized)
+            im_resized = im_resized.to('cpu')
+            im_res = (im_resized.squeeze(0).permute(1, 2, 0).detach().numpy() + 1) / 2 * 255
             im_res = cv2.resize(im_res, (im.shape[1], im.shape[0]))
 
             cv2.imwrite(os.path.join('./output', name), im_res)
