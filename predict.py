@@ -9,7 +9,7 @@ from torchvision import transforms
 from model import Net
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-R = 2 ** 3
+R = 2 ** 4
 
 
 def main():
