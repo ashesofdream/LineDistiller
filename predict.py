@@ -33,8 +33,9 @@ def main():
             im = cv2.imread(os.path.join(root, name))
             im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
             im_resized = cv2.resize(im, (im.shape[1] // R * R, im.shape[0] // R * R))
-
-            res = model(preprocess(im_resized).unsqueeze(0))
+            im_resized =preprocess(im_resized).unsqueeze(0)
+            im_resized.to(DEVICE)
+            res = model(im_resized)
 
             im_res = (res.squeeze(0).permute(1, 2, 0).detach().numpy() + 1) / 2 * 255
             im_res = cv2.resize(im_res, (im.shape[1], im.shape[0]))
