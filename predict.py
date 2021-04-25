@@ -23,6 +23,7 @@ def main():
             mean=[0.5, 0.5, 0.5],
             std=[0.5, 0.5, 0.5]),
     ])
+    num = 0
 
     for root, dirs, files in os.walk(r'/kaggle/input/sketch-gan/illustrations_resized/illustrations_resized', topdown=False):
         for name in files:
