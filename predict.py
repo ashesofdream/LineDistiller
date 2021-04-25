@@ -34,6 +34,7 @@ def main():
             im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
             im_resized = cv2.resize(im, (im.shape[1] // R * R, im.shape[0] // R * R))
             im_resized =preprocess(im_resized).unsqueeze(0)
+            print(im_resized.shape)
             im_resized = im_resized.to(DEVICE)
             res = model(im_resized)
             res = res.to('cpu')
