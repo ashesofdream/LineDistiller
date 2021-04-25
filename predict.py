@@ -16,7 +16,8 @@ def main():
                 print(len(files),":",num)
             if os.path.isfile(os.path.join('./output', name)):
                 continue
-            print(name)
+            if name == "17589.png":
+                continue
             im = cv2.imread(os.path.join(root, name))
             im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 
