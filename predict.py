@@ -24,10 +24,11 @@ def main():
             std=[0.5, 0.5, 0.5]),
     ])
 
-    for root, dirs, files in os.walk('./input', topdown=False):
+    for root, dirs, files in os.walk('/kaggle/input/sketch-gan/illustrations_resized/illustrations_resized'', topdown=False):
         for name in files:
-            print(os.path.join(root, name))
-
+            num=num+1
+            if num%1000 == 0:
+                print(len(files),":",num)
             im = cv2.imread(os.path.join(root, name))
             im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
             im_resized = cv2.resize(im, (im.shape[1] // R * R, im.shape[0] // R * R))
