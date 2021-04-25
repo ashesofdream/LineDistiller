@@ -14,6 +14,8 @@ def main():
             num=num+1
             if num%1000 == 0:
                 print(len(files),":",num)
+            if os.path.isfile(os.path.join('./output', name)):
+                continue
             im = cv2.imread(os.path.join(root, name))
             im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 
