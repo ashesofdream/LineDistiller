@@ -24,7 +24,7 @@ def main():
             std=[0.5, 0.5, 0.5]),
     ])
 
-    for root, dirs, files in os.walk('/kaggle/input/sketch-gan/illustrations_resized/illustrations_resized'', topdown=False):
+    for root, dirs, files in os.walk(r'/kaggle/input/sketch-gan/illustrations_resized/illustrations_resized'', topdown=False):
         for name in files:
             num=num+1
             if num%1000 == 0:
